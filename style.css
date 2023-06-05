@@ -1,3 +1,7 @@
+body {
+  background-color: #f0f9ff;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -41,4 +45,7 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
+}
+#dets {
+  margin-left: 20px;
 }
