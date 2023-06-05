@@ -19,6 +19,16 @@ window.onclick = function (event) {
   }
 };
 
+//hide modal
+function hideModal() {
+  var hide = document.getElementById("myModal");
+  if (hide.style.display === "none") {
+    hide.style.display = "block";
+  } else {
+    hide.style.display = "none";
+  }
+}
+
 //category show hide
 function showCategory() {
   var show = document.getElementById("category");
@@ -68,16 +78,22 @@ function showData() {
   } else {
     table = JSON.parse(localStorage.getItem("table"));
   }
+
   var html = "";
   table.forEach(function (element, index) {
     html += "<tr>";
     html += "<tr>" + element.category + "</tr>";
     html += "<tr>" + element.title + "</tr>";
     html += "<tr>" + element.url + "</tr>";
+    html +=
+      '<td> <button onclick="deleteData(' +
+      index +
+      ')" class="btn btn-danger">Delete</button></td>';
     html += "</tr>";
   });
   document.querySelector("#crudTable tbody").innerHTML = html;
 }
+
 document.onload = showData();
 //Add Data
 function AddData() {
@@ -104,4 +120,17 @@ function AddData() {
     document.getElementById("url").value = "";
     document.getElementById("category").value = "";
   }
+}
+//delete data from local storage
+function deleteData(index) {
+  var table;
+  if (localStorage.getItem("table") == null) {
+    table = [];
+  } else {
+    table = JSON.parse(localStorage.getItem("table"));
+  }
+
+  table.splice(index, 1);
+  localStorage.setItem("table", JSON.stringify(table));
+  showData();
 }

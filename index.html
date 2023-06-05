@@ -48,16 +48,16 @@
                         <div class="form-group col-md-6 mb-3">
                             <input id="category" type="text" name="category" placeholder="Category"
                                 class="form-control" />
-                            <select id="scategory">
-                                <option value=>Category</option>
-                            </select>
+                                <select>
+                                    <option>Category</option>
+                                </select>   
                             <button id="plus" onclick="showCategory()">+</button>
                         </div>
                         <br>
                     </div>
                     <!-- Save and Cancel Button -->
                     <div class="col-lg-12 mt-5">
-                        <button class="btn btn-success" id="cancel">Cancel</button>
+                        <button class="btn btn-success"  onclick="hideModal()" id="cancel">Cancel</button>
                         <button class="btn btn-primary" id="save" onclick="AddData()">Save</button>
                     </div>
                 </div>
@@ -65,6 +65,7 @@
 
             <!-- showdata -->
             <div>
+                <div id="cardContainer"></div>
                 <table class="table table-borderless" id="crudTable">
                     <thead>
                         <tr>
